@@ -1,7 +1,3 @@
-export const BASE_URL = 'https://www.saucedemo.com/'
-export const INVENTORY_URL = 'https://www.saucedemo.com/inventory.html'
-export const INVENTORY_TITLE = 'Products'
-
 // Valid login
 export const STANDARD_USER = 'standard_user'
 export const VALID_PASSWORD = 'secret_sauce'
@@ -18,33 +14,34 @@ export const VALID_USERS = [
 // Invalid users list
 export const INVALID_USERS = [
   {
-  scenario: 'Locked out user + currect password',
-  username: 'locked_out_user',
-  password: VALID_PASSWORD,
-  expectedError: 'Epic sadface: Sorry, this user has been locked out.'
+    scenario: 'Locked out user + currect password',
+    username: 'locked_out_user',
+    password: VALID_PASSWORD,
+    expectedError: 'Epic sadface: Sorry, this user has been locked out.',
   },
   {
     scenario: 'Wrong username + wrong password',
     username: 'wrong_user',
     password: 'wrong_password',
-    expectedError: 'Epic sadface: Username and password do not match any user in this service'
+    expectedError:
+      'Epic sadface: Username and password do not match any user in this service',
   },
   {
     scenario: 'Missing username + correct password',
     username: '',
     password: VALID_PASSWORD,
-    expectedError: 'Epic sadface: Username is required'
+    expectedError: 'Epic sadface: Username is required',
   },
   {
     scenario: 'Correct username + missing password',
     username: 'standard_user',
     password: '',
-    expectedError: 'Epic sadface: Password is required'
+    expectedError: 'Epic sadface: Password is required',
   },
   {
     scenario: 'Missing username + missing password',
     username: '',
     password: '',
-    expectedError: 'Epic sadface: Username is required'
-  }
+     expectedError: 'Epic sadface: Username is required',
+  },
 ]

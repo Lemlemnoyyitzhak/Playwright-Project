@@ -1,17 +1,6 @@
-// pages/InventoryPage.js
 import {expect} from '@playwright/test'
-import { 
-  INVENTORY_URL, 
-  CART_URL, 
-  CHECKOUT_1_URL, 
-  CHECKOUT_2_URL,
-  COMPLETE_URL,
-  INVENTORY_TITLE,
-  CART_TITLE,
-  CHECKOUT_1_TITLE,
-  CHECKOUT_2_TITLE,
-  COMPLETE_TITLE
-} from '../data/SanityData.js'
+import {TITLES} from '../data/Titles.js'
+import {URLS} from '../data/URLs.js'
 
 export class InventoryPage {
   // Locators
@@ -34,8 +23,8 @@ export class InventoryPage {
 
   // Actions & Methods
   async assertInventoryPage() {
-    await expect(this.page).toHaveURL(INVENTORY_URL)
-    await expect(this.page.locator(this.title)).toHaveText(INVENTORY_TITLE)
+    await expect(this.page).toHaveURL(URLS.INVENTORY)
+    await expect(this.page.locator(this.title)).toHaveText(TITLES.INVENTORY)
   }
 
   async addTwoProducts() {
@@ -46,15 +35,15 @@ export class InventoryPage {
 
   async goToCart() {
     await this.page.locator(this.cartLink).click()
-    await expect(this.page).toHaveURL(CART_URL)
-    await expect(this.page.locator(this.title)).toHaveText(CART_TITLE)
+    await expect(this.page).toHaveURL(URLS.CART)
+    await expect(this.page.locator(this.title)).toHaveText(TITLES.CART)
     await expect(this.page.locator(this.cartBadge)).toHaveText('2')
   }
 
   async checkoutStepOne() {
     await this.page.locator(this.checkoutButton).click()
-    await expect(this.page).toHaveURL(CHECKOUT_1_URL)
-    await expect(this.page.locator(this.title)).toHaveText(CHECKOUT_1_TITLE)
+    await expect(this.page).toHaveURL(URLS.CHECKOUT_1)
+    await expect(this.page.locator(this.title)).toHaveText(TITLES.CHECKOUT_1)
     await this.page.locator(this.firstNameField).fill('Lemlem Noy')
     await this.page.locator(this.lastNameField).fill('Yitzhak')
     await this.page.locator(this.postalCodeField).fill('12345')
@@ -62,15 +51,21 @@ export class InventoryPage {
   }
 
   async checkoutStepTwo() {
-    await expect(this.page).toHaveURL(CHECKOUT_2_URL)
-    await expect(this.page.locator(this.title)).toHaveText(CHECKOUT_2_TITLE)
+    await expect(this.page).toHaveURL(URLS.CHECKOUT_2)
+    await expect(this.page.locator(this.title)).toHaveText(TITLES.CHECKOUT_2)
     await this.page.locator(this.finishButton).click()
   }
 
   async assertCheckoutComplete() {
-    await expect(this.page).toHaveURL(COMPLETE_URL)
-    await expect(this.page.locator(this.title)).toHaveText(COMPLETE_TITLE)
-    await expect(this.page.locator(this.completeHeader))
-      .toHaveText('Thank you for your order!')
+    await expect(this.page).toHaveURL(URLS.COMPLETE)
+    await expect(this.page.locator(this.title)).toHaveText(TITLES.COMPLETE)
+    await expect(this.page.locator(this.completeHeader)).toHaveText(
+      'Thank you for your order!',
+    )
   }
 }
+
+
+
+
+ 
