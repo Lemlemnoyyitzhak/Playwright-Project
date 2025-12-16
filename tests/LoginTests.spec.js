@@ -8,9 +8,8 @@ import {
   VALID_USERS,
 } from '../data/Users.js'
 import {loginInvalid, loginValid} from '../helpers/LoginHelper.js'
-import {InventoryPage} from '../pages/InventoryPage.js' 
+import {InventoryPage} from '../pages/InventoryPage.js'
 import {LoginPage} from '../pages/LoginPage.js'
-
 
 test.describe('Login Suite', () => {
   test('Login with a valid user', async ({page}) => {
@@ -22,10 +21,9 @@ test.describe('Login Suite', () => {
   })
 })
 
-
 // test login of valid users
 test.describe('Login Suite - Valid Users', () => {
-VALID_USERS.forEach((user) => {
+  VALID_USERS.forEach((user) => {
     test(`Login of valid users: ${user}`, async ({page}) => {
       const loginPage = new LoginPage(page)
       const inventoryPage = new InventoryPage(page)
@@ -37,10 +35,9 @@ VALID_USERS.forEach((user) => {
   })
 })
 
-
 // test login of invalid users
 test.describe('Login Suite - Invalid logins', () => {
-INVALID_USERS.forEach(({scenario, username, password, expectedError}) => {
+  INVALID_USERS.forEach(({scenario, username, password, expectedError}) => {
     test(`Login of invalid users: ${scenario}`, async ({page}) => {
       const loginPage = new LoginPage(page)
       await loginInvalid(loginPage, username, password, expectedError)

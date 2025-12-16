@@ -64,8 +64,3 @@ export class InventoryPage {
     )
   }
 }
-
-
-
-
- 
