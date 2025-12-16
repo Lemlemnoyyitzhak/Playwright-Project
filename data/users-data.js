@@ -42,6 +42,6 @@ export const INVALID_USERS = [
     scenario: 'Missing username + missing password',
     username: '',
     password: '',
-     expectedError: 'Epic sadface: Username is required',
+    expectedError: 'Epic sadface: Username is required',
   },
 ]
