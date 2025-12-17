@@ -1,8 +1,7 @@
 import {test} from '@playwright/test'
-import {STANDARD_USER, VALID_PASSWORD} from '../data/Users.js'
+import {STANDARD_USER, VALID_PASSWORD} from '../data/users.js'
 import {InventoryPage} from '../pages/InventoryPage.js'
 import {LoginPage} from '../pages/LoginPage.js'
-
 
 test.describe('Sanity- Purchasing products', () => {
   test('Full purchase flow with standard_user', async ({page}) => {

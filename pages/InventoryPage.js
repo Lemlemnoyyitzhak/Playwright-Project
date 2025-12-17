@@ -1,6 +1,6 @@
 import {expect} from '@playwright/test'
-import {TITLES} from '../data/Titles.js'
-import {URLS} from '../data/URLs.js'
+import {TITLES} from '../data/titles.js'
+import {URLS} from '../data/urls.js'
 
 export class InventoryPage {
   // Locators
@@ -64,8 +64,3 @@ export class InventoryPage {
     )
   }
 }
-
-
-
-
- 
